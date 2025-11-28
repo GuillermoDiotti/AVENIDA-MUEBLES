@@ -425,7 +425,7 @@
     <section class="hero hero-nosotros">
         <div class="hero-carousel" id="carousel">
             <div class="carousel-item active">
-                <img src="img/oficinas.jpeg" alt="Img">
+                <img src="img/oficinas.jpeg" alt="Img" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
         </div>
@@ -522,7 +522,7 @@
 
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/showroom.jpeg" alt="Instalaciones">
+                        <img src="img/showroom.jpeg" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>
@@ -556,7 +556,7 @@
 
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/proyecto.jpeg" alt="Instalaciones">
+                        <img src="img/proyecto.jpeg" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>
@@ -624,7 +624,7 @@
             <div class="two-col-section">
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/proyecto.jpeg" alt="Instalaciones">
+                        <img src="img/proyecto.jpeg" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>

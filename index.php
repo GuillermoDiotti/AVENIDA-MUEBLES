@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avenida Muebles</title>
+    <title>Inicio - Avenida Muebles</title>
     <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Descubre tendencias, tips, ideas y novedades del mundo del mueble en Avenida Muebles.">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/logo-header.jpg">
+    <link rel="shortcut icon" href="img/logo-header.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo-header.jpg">
+
+    <link rel="preload" href="img/logo-header.jpg" as="image">
+
 </head>
 <body>
 
@@ -14,15 +23,15 @@
     <section class="hero">
         <div class="hero-carousel" id="carousel">
             <div class="carousel-item active">
-                <img src="img/living.jpeg" alt="Sala 1">
+                <img src="img/living.jpeg" alt="Sala 1" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
             <div class="carousel-item">
-                <img src="img/cocina2.jpeg" alt="Sala 2">
+                <img src="img/cocina2.jpeg" alt="Sala 2" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
             <div class="carousel-item">
-                <img src="img/comedor.jpeg" alt="Sala 3">
+                <img src="img/comedor.jpeg" alt="Sala 3" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
         </div>
@@ -112,7 +121,7 @@
                 </div>
                 
                 <div class="catalog-cta-image">
-                    <img src="img/portada-catalogo.jpg" alt="Catálogo">
+                    <img src="img/portada-catalogo.jpg" alt="Catálogo" loading="lazy">
                 </div>
             </div>
         </div>
