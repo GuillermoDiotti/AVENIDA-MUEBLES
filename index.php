@@ -4,18 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Avenida Muebles</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <meta name="description" content="Descubre tendencias, tips, ideas y novedades del mundo del mueble en Avenida Muebles.">
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="img/logo-header.jpg">
-    <link rel="shortcut icon" href="img/logo-header.jpg">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/logo-header.jpg">
-
-    <link rel="preload" href="img/logo-header.jpg" as="image">
-
 </head>
 <body>
+    <?php include 'head-seo.php'; ?>
 
     <?php include 'components/header.php'; ?>
 
