@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Avenida Muebles</title>
+    <?php include 'includes/head.php'; ?>
 </head>
 <body>
-    <?php include 'head-seo.php'; ?>
+    <?php include 'includes/head.php'; ?>
 
     <?php include 'components/header.php'; ?>
 
@@ -14,21 +13,21 @@
     <section class="hero">
         <div class="hero-carousel" id="carousel">
             <div class="carousel-item active">
-                <img src="img/living.jpeg" alt="Sala 1" loading="lazy">
+                <img src="img/living.webp" alt="Sala 1" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
             <div class="carousel-item">
-                <img src="img/cocina2.jpeg" alt="Sala 2" loading="lazy">
+                <img src="img/cocina2.webp" alt="Sala 2" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
             <div class="carousel-item">
-                <img src="img/comedor.jpeg" alt="Sala 3" loading="lazy">
+                <img src="img/comedor.webp" alt="Sala 3" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
         </div>
 
         <div class="hero-content">
-            <img src="img/logo.png" alt="Sala 3" style="height: 50%; width: 50%;">
+            <img src="img/logo.webp" alt="Sala 3" style="height: 50%; width: 50%;">
             <div class="btn-group">
                 <a href="catalogo.php" class="btn btn-primary">Ver Catálogo</a>
                 <a href="contacto.php" class="btn btn-secondary">Contactar</a>
@@ -112,7 +111,7 @@
                 </div>
                 
                 <div class="catalog-cta-image">
-                    <img src="img/portada-catalogo.jpg" alt="Catálogo" loading="lazy">
+                    <img src="img/portada-catalogo.webp" alt="Catálogo" loading="lazy">
                 </div>
             </div>
         </div>

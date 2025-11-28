@@ -2,7 +2,7 @@
     <nav>
         <!-- Logo -->
         <a href="index.php" class="logo">
-            <img src="img/logo-header.jpg" alt="Avenida Muebles">
+            <img src="img/logo-header.webp" alt="Avenida Muebles">
         </a>
 
         <!-- Navigation Desktop -->

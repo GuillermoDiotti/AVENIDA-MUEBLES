@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros - Avenida Muebles</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <?php include 'includes/head.php'; ?>
     <style>        
         /* Hero con efecto parallax */
         .hero-nosotros {
@@ -425,7 +422,7 @@
     <section class="hero hero-nosotros">
         <div class="hero-carousel" id="carousel">
             <div class="carousel-item active">
-                <img src="img/oficinas.jpeg" alt="Img" loading="lazy">
+                <img src="img/oficinas.webp" alt="Img" loading="lazy">
                 <div class="carousel-overlay"></div>
             </div>
         </div>
@@ -522,7 +519,7 @@
 
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/showroom.jpeg" alt="Instalaciones" loading="lazy">
+                        <img src="img/showroom.webp" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>
@@ -556,7 +553,7 @@
 
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/proyecto.jpeg" alt="Instalaciones" loading="lazy">
+                        <img src="img/proyecto.webp" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>
@@ -624,7 +621,7 @@
             <div class="two-col-section">
                 <div class="image-col">
                     <div class="image-wrapper">
-                        <img src="img/proyecto.jpeg" alt="Instalaciones" loading="lazy">
+                        <img src="img/proyecto.webp" alt="Instalaciones" loading="lazy">
                         <div class="image-badge">
                             <p class="badge-number">30+</p>
                             <p class="badge-text">Años de excelencia</p>

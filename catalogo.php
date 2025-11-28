@@ -12,7 +12,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="img/cocina4.jpeg" alt="Catálogo" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+        <img src="img/cocina4.webp" alt="Catálogo" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
         <div class="carousel-overlay"></div>
         
         <div class="hero-content">

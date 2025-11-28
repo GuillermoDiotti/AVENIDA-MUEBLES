@@ -7,7 +7,7 @@ $allNews = array(
         'date' => '15 Nov 2024', 
         'category' => 'oficina', 
         'badge' => 'NUEVO',
-        'image' => 'img/corporativos.jpeg', 
+        'image' => 'img/corporativos.webp', 
         'content' => 'La nueva línea ejecutiva combina diseño contemporáneo con ergonomía de última generación.'
     ),
     array(
@@ -17,7 +17,7 @@ $allNews = array(
         'date' => '10 Nov 2024', 
         'category' => 'living', 
         'badge' => 'PREMIUM',
-        'image' => 'img/sofa.jpeg', 
+        'image' => 'img/sofa.webp', 
         'content' => 'Cuero premium curtido al vegetal con garantía de 10 años.'
     ),
     array(
@@ -27,7 +27,7 @@ $allNews = array(
         'date' => '5 Nov 2024', 
         'category' => 'cocina', 
         'badge' => 'MINIMALISTA',
-        'image' => 'img/cocina3.jpeg', 
+        'image' => 'img/cocina3.webp', 
         'content' => 'Inspirada en el diseño escandinavo, esta colección presenta líneas simples.'
     ),
     array(
@@ -37,7 +37,7 @@ $allNews = array(
         'date' => '1 Nov 2024', 
         'category' => 'dormitorio', 
         'badge' => 'COMODIDAD',
-        'image' => 'img/wish.jpeg',
+        'image' => 'img/wish.webp',
         'content' => 'Módulos intercambiables con iluminación LED inteligente.'
     ),
     array(
@@ -47,7 +47,7 @@ $allNews = array(
         'date' => '28 Oct 2024', 
         'category' => 'living', 
         'badge' => 'RUSTICO',
-        'image' => 'img/linea-rustico.jpeg', 
+        'image' => 'img/linea-rustico.webp', 
         'content' => 'Escritorios plegables, estanterías verticales y sillas ergonómicas.'
     )
 );
@@ -60,10 +60,7 @@ $filtered = array_filter($allNews, function($news) use ($category) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades - Avenida Muebles</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <?php include 'includes/head.php'; ?>
 </head>
 <body>
 

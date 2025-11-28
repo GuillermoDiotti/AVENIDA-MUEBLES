@@ -3,7 +3,7 @@
         <div class="footer-content">
             <!-- Columna 1: Logo -->
             <div id="footer-picture" class="footer-column">
-                <img src="img/logo-footer.jpg" alt="Avenida Muebles Logo" style="height: 280px; width: 280px; margin-bottom: 1rem;">
+                <img src="img/logo-footer.webp" alt="Avenida Muebles Logo" style="height: 280px; width: 280px; margin-bottom: 1rem;">
             </div>
 
             <!-- Columna 2: Contacto -->
