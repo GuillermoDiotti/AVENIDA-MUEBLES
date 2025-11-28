@@ -4,114 +4,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Avenida Muebles</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>        
+        /* Hero con efecto parallax */
+        .hero-nosotros {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        
+        .hero-nosotros img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+        }
+        
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.5) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+        
+        .hero-subtitle {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Stats Section - Diseño Asimétrico */
+        .section-stats {
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--background-dark) 100%);
+            padding: 6rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(201,167,110,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+        
+        .stat-card {
+            background: var(--secondary-black);
+            border: 2px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-gold), #d4b080);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .stat-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 60px rgba(201,167,110,0.3);
+        }
+        
+        .stat-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+        
+        .stat-card:hover .stat-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .stat-icon-blue {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+        }
+        
+        .stat-icon-green {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .stat-icon-purple {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+        
+        .stat-icon-orange {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .stat-icon svg {
+            width: 50px;
+            height: 50px;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .two-col-section-horizontal {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+        
+        /* Two Column Section */
+        .two-col-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold), #d4b080);
+            color: var(--primary-black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title-left {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        
+        .text-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            text-align: justify;
+
+        }
+        
+        .text-content strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transform: rotate(-2deg);
+            transition: transform 0.4s ease;
+        }
+        
+        .image-wrapper:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(26,26,26,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            border: 2px solid var(--accent-gold);
+        }
+        
+        .badge-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        
+        .badge-text {
+            font-size: 0.95rem;
+            color: white;
+            margin: 0;
+        }
+        
+        /* Feature List */
+        .feature-list {
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--secondary-black);
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateX(10px);
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), #d4b080);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+        
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .feature-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section - Diseño Impactante */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #d4b080 100%);
+            padding: 6rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .cta-text {
+            font-size: 1.25rem;
+            color: rgba(26,26,26,0.8);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        
+        /* Section Header Centered */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .text-lead {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .two-col-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .two-col-section-horizontal {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .stat-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .section-title-left {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white dark:bg-slate-900">
+<body>
 
     <?php include 'components/header.php'; ?>
 
-    <!-- Hero Section -->
-    <section class="relative h-[70vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920" alt="Avenida Muebles" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"></div>
-        
-        <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-4 w-full">
-                <div class="max-w-3xl">
-                    <p class="text-blue-400 font-semibold text-sm tracking-wider uppercase mb-4">Más de 30 años de trayectoria</p>
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        Diseñando espacios,<br>
-                        <span class="text-blue-400">creando hogares</span>
-                    </h1>
-                    <p class="text-xl text-white/90 leading-relaxed">
-                        Transformamos ambientes con muebles de calidad excepcional, 
-                        fusionando diseño contemporáneo y funcionalidad.
-                    </p>
-                </div>
+    <section class="hero hero-nosotros">
+        <div class="hero-carousel" id="carousel">
+            <div class="carousel-item active">
+                <img src="img/oficinas.jpeg" alt="Img">
+                <div class="carousel-overlay"></div>
             </div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-subtitle">Más de 30 años de trayectoria</p>
+            <h1>
+                Líderes en
+                <span class="text-gold"> distribución mayorista</span>
+            </h1>
+            <p class="hero-description">
+                Representantes exclusivos de las mejores fábricas de China y Brasil, ofreciendo mobiliario de calidad superior con cobertura nacional en todo el país.
+            </p>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center group">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <section class="section section-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-blue">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-4xl font-bold text-slate-800 dark:text-white mb-2">+30</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Años de experiencia</p>
+                    <h3 class="stat-number">+30</h3>
+                    <p class="stat-label">Años de experiencia en el mercado Uruguayo</p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-green">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-4xl font-bold text-slate-800 dark:text-white mb-2">7000m²</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Instalaciones propias</p>
+                    <h3 class="stat-number">7000m²</h3>
+                    <p class="stat-label">En instalaciones propias</p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-purple">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-4xl font-bold text-slate-800 dark:text-white mb-2">+50</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Equipo profesional</p>
+                    <h3 class="stat-number">+50</h3>
+                    <p class="stat-label">Equipo profesional capacitado</p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-orange-100 dark:bg-orange-900/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-orange">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-4xl font-bold text-slate-800 dark:text-white mb-2">Nacional</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Cobertura total</p>
+                    <h3 class="stat-number">Nacional</h3>
+                    <p class="stat-label">Cobertura total a todo el Uruguay</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Historia Section -->
-    <section class="py-20 bg-white dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="order-2 md:order-1">
-                    <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-wider uppercase">Nuestra Historia</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mt-4 mb-6">
-                        Tres décadas transformando hogares uruguayos
+    <section class="section">
+        <div class="container">
+            <div class="two-col-section">
+                <div class="content-col">
+                    <span class="section-badge">Nuestra Historia</span>
+                    <h2 class="section-title-left">
+                        Tres décadas liderando el mercado mayorista de muebles en Uruguay
                     </h2>
-                    <div class="space-y-4 text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                    <div class="text-content">
                         <p>
-                            Desde nuestra fundación en <strong class="text-slate-800 dark:text-white">Las Piedras, Canelones</strong>, 
-                            nos hemos consolidado como referentes del mercado nacional gracias a nuestro 
-                            <strong class="text-slate-800 dark:text-white">compromiso inquebrantable con la calidad y el diseño</strong>.
+                            <strong>Tres décadas</strong> impulsando la <strong>distribución mayorista de muebles
+                            </strong> en Uruguay. Desde nuestra fundación en <strong>Las Piedras, Canelones</strong>, 
+                            nos hemos consolidado como un <strong>referente nacional</strong> en el sector, con <strong>cobertura en todo el país</strong> 
+                            y una trayectoria sostenida en el mercado mayorista.
                         </p>
                         <p>
-                            Cada mueble que sale de nuestras instalaciones es el resultado de la perfecta 
-                            combinación entre <strong class="text-slate-800 dark:text-white">tecnología de última generación</strong> 
-                            importada de las mejores fábricas del mundo y el expertise de nuestro talentoso equipo.
+                            Somos <strong>representantes exclusivos en Uruguay</strong> de reconocidas fábricas de <strong>China</strong> y <strong>Brasil</strong>, 
+                            lo que nos permite ofrecer acceso directo a <strong>líneas de producción de primer nivel</strong> y colecciones alineadas con las demandas del mercado.
                         </p>
                         <p>
-                            Más que fabricar muebles, <strong class="text-slate-800 dark:text-white">creamos soluciones de mobiliario</strong> 
-                            que transforman espacios en experiencias, siempre con la mejor relación calidad-precio del mercado.
+                            Nuestra participación constante en <strong>ferias internacionales</strong> nos permite seleccionar y <strong>renovar permanentemente nuestro catálogo,
+                            </strong>manteniéndonos al día con las <strong>tendencias globales</strong> en diseño y funcionalidad para ofrecer propuestas contemporáneas y competitivas.
+                        </p>
+                        <p>
+                            Comprometidos con la <strong>innovación</strong> y la <strong>calidad internacional</strong>, trabajamos para ofrecer una oferta diversa y en constante evolución 
+                            que respalde nuestro <strong>liderazgo en el mercado mayorista</strong>.
                         </p>
                     </div>
                 </div>
 
-                <div class="order-1 md:order-2 relative">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800" alt="Instalaciones" class="rounded-2xl shadow-2xl">
-                        <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl">
-                            <p class="text-3xl font-bold">30+</p>
-                            <p class="text-sm">Años de excelencia</p>
+                <div class="image-col">
+                    <div class="image-wrapper">
+                        <img src="img/showroom.jpeg" alt="Instalaciones">
+                        <div class="image-badge">
+                            <p class="badge-number">30+</p>
+                            <p class="badge-text">Años de excelencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="two-col-section-horizontal">
+                <div class="content-col">
+                    <span class="section-badge">Expansión e Innovación</span>
+                    <h2 class="section-title-left">
+                        Nuevo centro logístico en construcción
+                    </h2>
+                    <div class="text-content">
+                        <p>
+                            <strong>Nuevo centro logístico en construcción</strong>. Actualmente estamos desarrollando nuestra nueva planta en <strong>Ruta 48, Las Piedras</strong>, un proyecto que ampliará de forma significativa nuestra capacidad operativa y optimizará nuestros <strong>tiempos de entrega</strong> en todo el país.
+                        </p>
+                        <p>
+                            Esta inversión reafirma nuestro compromiso con el <strong>crecimiento sostenido</strong> y la <strong>modernización</strong> de nuestra infraestructura, siempre con el objetivo de ofrecer un <strong>servicio superior</strong> a nuestros clientes mayoristas.
+                        </p>
+                        <p>
+                            La incorporación de este nuevo centro logístico nos permitirá operar con mayor eficiencia, mejorar la gestión de inventarios y responder con mayor agilidad a las demandas del mercado uruguayo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="image-col">
+                    <div class="image-wrapper">
+                        <img src="img/proyecto.jpeg" alt="Instalaciones">
+                        <div class="image-badge">
+                            <p class="badge-number">30+</p>
+                            <p class="badge-text">Años de excelencia</p>
                         </div>
                     </div>
                 </div>
@@ -120,53 +568,48 @@
     </section>
 
     <!-- Valores Section -->
-    <section class="py-20 bg-white dark:bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-wider uppercase">Nuestros Pilares</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mt-4">
-                    Lo que nos define
-                </h2>
+    <section class="section section-darker">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Nuestros Pilares</span>
+                <h2 class="section-title">Lo que nos define</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Valor 1 -->
-                <div class="bg-white dark:bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon card-icon-blue">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Calidad Superior</h3>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <h3 class="card-title">Calidad Superior</h3>
+                    <p class="card-text">
                         Importamos productos de fábricas con tecnología de última generación, 
                         garantizando durabilidad y acabados impecables en cada pieza.
                     </p>
                 </div>
 
-                <!-- Valor 2 -->
-                <div class="bg-white dark:bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="card">
+                    <div class="card-icon card-icon-green">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Diseño Innovador</h3>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <h3 class="card-title">Diseño Innovador</h3>
+                    <p class="card-text">
                         Combinamos tendencias internacionales con funcionalidad práctica, 
                         creando muebles que elevan cualquier ambiente con estilo contemporáneo.
                     </p>
                 </div>
 
-                <!-- Valor 3 -->
-                <div class="bg-white dark:bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="card">
+                    <div class="card-icon card-icon-purple">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Respeto al Cliente</h3>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <h3 class="card-title">Respeto al Cliente</h3>
+                    <p class="card-text">
                         Nuestra prioridad es tu satisfacción. Construimos relaciones duraderas 
                         basadas en confianza, transparencia y servicio excepcional.
                     </p>
@@ -176,85 +619,82 @@
     </section>
 
     <!-- Instalaciones Section -->
-    <section class="py-20 bg-white dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-wider uppercase">Infraestructura</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mt-4 mb-6">
-                        7000m² de innovación y producción
-                    </h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8">
-                        Nuestras modernas instalaciones en <strong class="text-slate-800 dark:text-white">Las Piedras</strong> 
-                        integran tecnología de punta con espacios optimizados para cada etapa del proceso productivo.
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 dark:text-white mb-1">Maquinaria de última generación</h4>
-                                <p class="text-slate-600 dark:text-slate-300">Equipos importados que garantizan precisión y calidad en cada detalle</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 dark:text-white mb-1">Equipo profesional capacitado</h4>
-                                <p class="text-slate-600 dark:text-slate-300">Más de 50 colaboradores especializados en cada área</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 dark:text-white mb-1">Control de calidad riguroso</h4>
-                                <p class="text-slate-600 dark:text-slate-300">Cada pieza pasa por múltiples inspecciones antes de salir</p>
-                            </div>
+    <section class="section">
+        <div class="container">
+            <div class="two-col-section">
+                <div class="image-col">
+                    <div class="image-wrapper">
+                        <img src="img/proyecto.jpeg" alt="Instalaciones">
+                        <div class="image-badge">
+                            <p class="badge-number">30+</p>
+                            <p class="badge-text">Años de excelencia</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400" alt="Instalación 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Instalación 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 mt-8">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400" alt="Instalación 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Instalación 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 mt-8">
+                <div class="content-col">
+                    <span class="section-badge">Infraestructura</span>
+                    <h2 class="section-title-left">
+                        7000m² de innovación y producción
+                    </h2>
+                    <p class="text-lead">
+                        Nuestras modernas instalaciones en <strong>Las Piedras</strong> 
+                        integran tecnología de punta con espacios optimizados para cada etapa del proceso productivo.
+                    </p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Maquinaria de última generación</h4>
+                                <p>Equipos importados que garantizan precisión y calidad en cada detalle</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Equipo profesional capacitado</h4>
+                                <p>Más de 50 colaboradores especializados en cada área</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Control de calidad riguroso</h4>
+                                <p>Cada pieza pasa por múltiples inspecciones antes de salir</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-white dark:bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                ¿Listo para transformar tu espacio?
-            </h2>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+    <section class="cta-section">
+        <div class="container-sm text-center">
+            <h2 class="cta-title">¿Listo para transformar tu espacio?</h2>
+            <p class="cta-text">
                 Descubre nuestra amplia selección de muebles diseñados para hacer de tu hogar 
                 un lugar único y acogedor.
             </p>
-            <div class="flex gap-4 justify-center flex-wrap">
-                <a href="index.php#catalogo" class="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-200">
-                    Ver Catálogo
-                </a>
-                <a href="index.php#contacto" class="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-200">
-                    Contactar
-                </a>
+            <div class="btn-group">
+                <a href="/catalogo.php" class="btn btn-primary">Ver Catálogo</a>
+                <a href="/contacto.php" class="btn btn-secondary">Contactar</a>
             </div>
         </div>
     </section>
